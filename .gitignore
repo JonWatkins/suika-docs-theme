@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+*.local
+node_modules/*
+coverage
+docs
