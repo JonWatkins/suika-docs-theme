@@ -1,6 +1,6 @@
 {
   "name": "suika-docs-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "author": "Jon Watkins",
   "license": "MIT",
@@ -26,7 +26,8 @@
     "typedoc": "^0.24.5"
   },
   "files": [
-    "dist"
+    "dist",
+    "assets"
   ],
   "keywords": [
     "typedoc-theme"
