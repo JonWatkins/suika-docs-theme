@@ -1,1 +1,1 @@
-A theme typedocfor Suika documentation.
+A typedoc theme for Suika documentation.
