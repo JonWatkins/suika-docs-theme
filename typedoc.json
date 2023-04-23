@@ -7,10 +7,12 @@
   "plugin": ["./dist/index.js"],
   "theme": "suika-theme",
   "includeVersion": true,
-  "navigationLinks": {
-    "Example": "http://example.com"
-  },
-  "suika": {
-    "pages": [{ "name": "Installaion", "content": "Installaion" }]
-  }
+  "toolbarLinks": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/JonWatkins/suika-docs-theme",
+      "target": "_blank"
+    }
+  ],
+  "keywords": ["suika", "typedoc", "typedoc-theme"]
 }

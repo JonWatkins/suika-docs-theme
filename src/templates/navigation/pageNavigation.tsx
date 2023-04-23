@@ -1,10 +1,10 @@
 import { DefaultThemeRenderContext, JSX, PageEvent, Reflection } from "typedoc";
-import { wbr } from "../utils";
+import { wordbreak } from "../utils";
 
-export function pageNavigation(
+export const pageNavigation = (
   context: DefaultThemeRenderContext,
   props: PageEvent<Reflection>
-) {
+): JSX.Element => {
   const levels: JSX.Element[][] = [[]];
 
   function finalizeLevel() {
@@ -31,7 +31,7 @@ export function pageNavigation(
     levels[levels.length - 1].push(
       <a href={heading.link} class={heading.classes}>
         {heading.kind && context.icons[heading.kind]()}
-        <span>{wbr(heading.text)}</span>
+        <span>{wordbreak(heading.text)}</span>
       </a>
     );
   }
@@ -61,4 +61,4 @@ export function pageNavigation(
       </div>
     </details>
   );
-}
+};

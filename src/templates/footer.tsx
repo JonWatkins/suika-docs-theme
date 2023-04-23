@@ -3,8 +3,8 @@ import { DefaultThemeRenderContext, JSX, PageEvent, Reflection } from "typedoc";
 export const footer = (
   context: DefaultThemeRenderContext,
   props: PageEvent<Reflection>
-) => (
-  <footer class="container tsd-generator">
+): JSX.Element => (
+  <footer class="tsd-generator">
     <p>
       Generated using{" "}
       <a href="https://typedoc.org/" target="_blank">

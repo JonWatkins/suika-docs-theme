@@ -1,8 +1,13 @@
 import { DefaultThemeRenderContext, JSX, PageEvent, Reflection } from "typedoc";
 
-export function pageSidebar(
+export const pageSidebar = (
   context: DefaultThemeRenderContext,
   props: PageEvent<Reflection>
-) {
-  return <>{context.pageNavigation(props)}</>;
-}
+): JSX.Element => {
+  return (
+    <>
+      {/* context.settings()*/}
+      {context.pageNavigation(props)}
+    </>
+  );
+};

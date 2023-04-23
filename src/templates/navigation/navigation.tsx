@@ -9,31 +9,17 @@ import {
 } from "typedoc";
 import {
   classNames,
-  wbr,
+  wordbreak,
   getDisplayName,
   getReadme,
   getComment,
 } from "../utils";
 
-export function navigation(
+export const navigation = (
   context: DefaultThemeRenderContext,
   props: PageEvent<Reflection>
-) {
-  // Create the navigation for the current page
-  // Recurse to children if the parent is some kind of module
-
-  return (
-    <nav class="tsd-navigation">
-      {link(props.project)}
-      <ul class="tsd-small-nested-navigation">
-        {props.project.children?.map((c) => (
-          <li>{links(c)}</li>
-        ))}
-      </ul>
-    </nav>
-  );
-
-  function links(mod: DeclarationReflection) {
+): JSX.Element => {
+  const links = (mod: DeclarationReflection): JSX.Element => {
     const children =
       (mod.kindOf(ReflectionKind.SomeModule | ReflectionKind.Project) &&
         mod.children) ||
@@ -67,13 +53,13 @@ export function navigation(
         </div>
       </details>
     );
-  }
+  };
 
-  function link(
+  const link = (
     child: DeclarationReflection | ProjectReflection,
     fn: typeof getReadme | typeof getComment = getComment,
     nameClasses?: string
-  ) {
+  ): JSX.Element => {
     return (
       <a
         href={context.urlTo(child)}
@@ -81,19 +67,30 @@ export function navigation(
       >
         {context.icons[child.kind]()}
         <div>
-          {wbr(getDisplayName(child))}
+          {wordbreak(getDisplayName(child))}
           {fn(child as DeclarationReflection)}
         </div>
       </a>
     );
-  }
+  };
 
-  function inPath(mod: DeclarationReflection | ProjectReflection) {
+  const inPath = (mod: DeclarationReflection | ProjectReflection): boolean => {
     let iter: Reflection | undefined = props.model;
     do {
       if (iter == mod) return true;
       iter = iter.parent;
     } while (iter);
     return false;
-  }
-}
+  };
+
+  return (
+    <nav class="tsd-navigation">
+      {link(props.project)}
+      <ul class="list-unstyled">
+        {props.project.children?.map((c) => (
+          <li>{links(c)}</li>
+        ))}
+      </ul>
+    </nav>
+  );
+};

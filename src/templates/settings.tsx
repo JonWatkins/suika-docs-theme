@@ -1,11 +1,6 @@
 import { DefaultThemeRenderContext, JSX } from "typedoc";
+import { camelToTitleCase } from "./utils";
 
-function camelToTitleCase(text: string) {
-  return (
-    text.substring(0, 1).toUpperCase() +
-    text.substring(1).replace(/[a-z][A-Z]/g, (x) => `${x[0]} ${x[1]}`)
-  );
-}
 function buildFilterItem(
   context: DefaultThemeRenderContext,
   name: string,
@@ -83,14 +78,14 @@ export function settings(context: DefaultThemeRenderContext) {
               </form>
             </div>
           )}
-          <div class="tsd-theme-toggle">
+          {/* <div class="tsd-theme-toggle">
             <h4 class="uppercase">Theme</h4>
             <select id="theme">
               <option value="os">OS</option>
               <option value="light">Light</option>
               <option value="dark">Dark</option>
             </select>
-          </div>
+          </div> */}
         </div>
       </details>
     </div>
