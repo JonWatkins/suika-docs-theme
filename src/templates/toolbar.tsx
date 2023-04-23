@@ -25,7 +25,9 @@ export const toolbar = (
           <div id="tsd-toolbar-links">
             {Object.entries(context.options.getValue("navigationLinks")).map(
               ([label, url]) => (
-                <a href={url}>{label}</a>
+                <a href={url} target="_blank">
+                  {label}
+                </a>
               )
             )}
           </div>

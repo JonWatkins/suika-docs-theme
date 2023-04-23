@@ -9,5 +9,8 @@
   "includeVersion": true,
   "navigationLinks": {
     "Example": "http://example.com"
+  },
+  "suika": {
+    "pages": [{ "name": "Installaion", "content": "Installaion" }]
   }
 }

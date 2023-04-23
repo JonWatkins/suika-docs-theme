@@ -4,10 +4,5 @@ export function pageSidebar(
   context: DefaultThemeRenderContext,
   props: PageEvent<Reflection>
 ) {
-  return (
-    <>
-      {context.settings()}
-      {context.pageNavigation(props)}
-    </>
-  );
+  return <>{context.pageNavigation(props)}</>;
 }
