@@ -1,7 +1,6 @@
 import { Theme } from "./Theme";
-import { writeFileSync } from "fs";
+import { cpSync } from "fs";
 import { resolve } from "path";
-import * as sass from "sass";
 const THEME_NAME = "suika-theme";
 
 import { Application, RendererEvent, ParameterType } from "typedoc";
@@ -24,10 +23,9 @@ export function load(app: Application) {
   });
 
   app.listenTo(app.renderer, RendererEvent.END, (): void => {
-    const from = resolve(__dirname, "../src/scss/style.scss");
+    const from = resolve(__dirname, "../dist/style.css");
     const to = resolve(app.options.getValue("out"), `assets/${THEME_NAME}.css`);
-    const compiled = sass.compile(from, { style: "compressed" });
-    writeFileSync(to, compiled.css);
+    cpSync(from, to);
   });
 
   app.renderer.defineTheme(THEME_NAME, Theme);
