@@ -1,6 +1,6 @@
 {
   "name": "suika-docs-theme",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "author": "Jon Watkins",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "lint": "npm run lint:format && npm run lint:fix ",
     "build": "npm run lint && tsc",
     "predocs": "npm run lint && tsc",
-    "docs": "typedoc --options typedoc.json"
+    "docs": "typedoc --plugin ./dist/index.js --theme suika-theme  --out docs src/index.tsx"
   },
   "devDependencies": {
     "@types/node": "^18.15.13",
@@ -29,8 +29,7 @@
     "typedoc": "^0.24.5"
   },
   "files": [
-    "dist",
-    "assets"
+    "dist"
   ],
   "keywords": [
     "typedoc-theme"
